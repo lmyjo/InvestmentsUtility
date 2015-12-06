@@ -1,0 +1,49 @@
+{
+  "name": "Operacion",
+  "plural": "Operaciones",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nombre": {
+      "type": "string"
+    },
+    "cantidad_monetaria": {
+      "type": "number",
+      "required": true
+    },
+    "tasa_interes": {
+      "type": "number",
+      "required": true
+    },
+    "periodicidad": {
+      "type": "number",
+      "required": true
+    },
+    "fecha_creacion": {
+      "type": "date",
+      "required": true
+    },
+    "fecha_operacion": {
+      "type": "date",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "tipo_operacion": {
+      "type": "hasMany",
+      "model": "TipoOperacion",
+      "foreignKey": ""
+    },
+    "unidad_tiempo": {
+      "type": "hasMany",
+      "model": "UnidadTiempo",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

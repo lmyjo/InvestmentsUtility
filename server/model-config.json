@@ -31,5 +31,17 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "Operacion": {
+    "dataSource": "investments",
+    "public": true
+  },
+  "TipoOperacion": {
+    "dataSource": "investments",
+    "public": true
+  },
+  "UnidadTiempo": {
+    "dataSource": "investments",
+    "public": true
   }
 }
