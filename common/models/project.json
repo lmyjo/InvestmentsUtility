@@ -1,0 +1,62 @@
+{
+  "name": "project",
+  "plural": "projects",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "created": {
+      "type": "date"
+    },
+    "lastModification": {
+      "type": "date"
+    },
+    "startingDate": {
+      "type": "date",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "owner": {
+      "type": "belongsTo",
+      "model": "Owner",
+      "foreignKey": "owner_id"
+    }
+  },
+
+  "acls": [
+    { "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    { "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW"
+    },
+    { "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    { "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}
