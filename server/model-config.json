@@ -31,5 +31,13 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "project": {
+    "dataSource": "investments",
+    "public": true
+  },
+  "Owner": {
+    "dataSource": "investments",
+    "public": true
   }
 }
