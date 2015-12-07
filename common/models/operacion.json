@@ -1,14 +1,27 @@
 {
   "name": "Operacion",
-  "plural": "Operaciones",
+  "plural": "operaciones",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
-    "validateUpsert": true
+    "validateUpsert": false
   },
   "properties": {
     "nombre": {
-      "type": "string"
+      "type": "string",
+      "required": true
+    },
+    "tipo_operacion": {
+      "type": "string",
+      "required": true
+    },
+    "unidad_tiempo": {
+      "type": "string",
+      "required": true
+    },
+    "tipo_factor": {
+      "type": "string",
+      "required": true
     },
     "cantidad_monetaria": {
       "type": "number",
@@ -18,32 +31,57 @@
       "type": "number",
       "required": true
     },
-    "periodicidad": {
+    "periodo_inicial": {
       "type": "number",
       "required": true
     },
-    "fecha_creacion": {
-      "type": "date",
-      "required": true
+    "periodicidad": {
+      "type": "number"
     },
-    "fecha_operacion": {
-      "type": "date",
-      "required": true
+    "duracion": {
+      "type": "number"
+    },
+    "incremento": {
+      "type": "number"
+    },
+    "fecha_creacion": {
+      "type": "date"
     }
   },
   "validations": [],
   "relations": {
-    "tipo_operacion": {
-      "type": "hasMany",
-      "model": "TipoOperacion",
-      "foreignKey": ""
-    },
-    "unidad_tiempo": {
-      "type": "hasMany",
-      "model": "UnidadTiempo",
-      "foreignKey": ""
+    "project": {
+      "type": "belongsTo",
+      "model": "project",
+      "foreignKey": "project_id"
     }
   },
-  "acls": [],
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW"
+    }
+  ],
   "methods": {}
 }

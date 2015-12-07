@@ -37,14 +37,6 @@
     "dataSource": "investments",
     "public": true
   },
-  "TipoOperacion": {
-    "dataSource": "investments",
-    "public": false
-  },
-  "UnidadTiempo": {
-    "dataSource": "investments",
-    "public": false
-  },
   "project": {
     "dataSource": "investments",
     "public": true

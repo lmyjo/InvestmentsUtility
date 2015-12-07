@@ -10,6 +10,7 @@
   "dependencies": {
     "compression": "^1.0.3",
     "cors": "^2.5.2",
+    "lmyjo-type": "git+https://github.com/lmyjo/lmyjo-type.git",
     "loopback": "^2.22.0",
     "loopback-boot": "^2.6.5",
     "loopback-connector-mongodb": "^1.13.1",
