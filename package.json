@@ -10,12 +10,15 @@
   "dependencies": {
     "compression": "^1.0.3",
     "cors": "^2.5.2",
+    "lmyjo-type": "git+https://github.com/lmyjo/lmyjo-type.git",
     "loopback": "^2.22.0",
     "loopback-boot": "^2.6.5",
     "loopback-connector-mongodb": "^1.13.1",
+    "loopback-connector-mysql": "^2.2.0",
     "loopback-datasource-juggler": "^2.39.0",
+    "loopback-explorer": "^1.1.0",
     "serve-favicon": "^2.0.1",
-    "loopback-explorer": "^1.1.0"
+    "strongloop": "^5.0.1"
   },
   "optionalDependencies": {
     "loopback-explorer": "^1.1.0"

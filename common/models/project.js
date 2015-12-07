@@ -17,5 +17,6 @@ module.exports = function(Project) {
   });
 
   Project.disableRemoteMethod('find', true);
-
+  Project.disableRemoteMethod('create', true);
+  Project.disableRemoteMethod('upsert', true);
 };

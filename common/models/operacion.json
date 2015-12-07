@@ -1,41 +1,58 @@
 {
-  "name": "project",
-  "plural": "projects",
+  "name": "Operacion",
+  "plural": "operaciones",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": false
   },
   "properties": {
-    "name": {
+    "nombre": {
       "type": "string",
       "required": true
     },
-    "created": {
-      "type": "date"
-    },
-    "lastModification": {
-      "type": "date"
-    },
-    "startingDate": {
-      "type": "date",
-      "required": true
-    },
-    "description": {
+    "tipo_operacion": {
       "type": "string",
       "required": true
+    },
+    "unidad_tiempo": {
+      "type": "string",
+      "required": true
+    },
+    "tipo_factor": {
+      "type": "string",
+      "required": true
+    },
+    "cantidad_monetaria": {
+      "type": "number",
+      "required": true
+    },
+    "tasa_interes": {
+      "type": "number",
+      "required": true
+    },
+    "periodo_inicial": {
+      "type": "number",
+      "required": true
+    },
+    "periodicidad": {
+      "type": "number"
+    },
+    "duracion": {
+      "type": "number"
+    },
+    "incremento": {
+      "type": "number"
+    },
+    "fecha_creacion": {
+      "type": "date"
     }
   },
   "validations": [],
   "relations": {
-    "owner": {
+    "project": {
       "type": "belongsTo",
-      "model": "Owner",
-      "foreignKey": "owner_id"
-    },
-    "operaciones": {
-      "type": "hasMany",
-      "model": "Operacion",
+      "model": "project",
       "foreignKey": "project_id"
     }
   },

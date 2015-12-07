@@ -14,7 +14,8 @@
     ]
   },
   "User": {
-    "dataSource": "investments"
+    "dataSource": "investments",
+    "public": false
   },
   "AccessToken": {
     "dataSource": "db",
@@ -31,6 +32,10 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "Operacion": {
+    "dataSource": "investments",
+    "public": true
   },
   "project": {
     "dataSource": "investments",
