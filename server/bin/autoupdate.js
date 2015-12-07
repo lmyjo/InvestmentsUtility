@@ -7,30 +7,30 @@ var dataSource = app.dataSources.investments;
 dataSource.autoupdate('Operacion', function(err) {
   if (err) throw err;
 
-  //Imprime la información del modelo creado
+  //Imprime la información del modelo actualizado
   dataSource.discoverModelProperties('Operacion', function (err, props) {
     console.log(props);
   });
   
 });
 
-// Hace la creación de la tabla TipoOperacion 
-dataSource.autoupdate('TipoOperacion', function(err) {
+// Hace el update de la tabla Owner 
+dataSource.autoupdate('Owner', function(err) {
   if (err) throw err;
 
-  //Imprime la información del modelo creado
-  dataSource.discoverModelProperties('TipoOperacion', function (err, props) {
+  //Imprime la información del modelo actualizado
+  dataSource.discoverModelProperties('Owner', function (err, props) {
     console.log(props);
   });
   
 });
 
-// Hace el update de la tabla UnidadTiempo 
-dataSource.autoupdate('UnidadTiempo', function(err) {
+// Hace el update de la tabla project 
+dataSource.autoupdate('project', function(err) {
   if (err) throw err;
 
-  //Imprime la información del modelo creado
-  dataSource.discoverModelProperties('UnidadTiempo', function (err, props) {
+  //Imprime la información del modelo actualizado
+  dataSource.discoverModelProperties('project', function (err, props) {
     console.log(props);
     dataSource.disconnect();
   });

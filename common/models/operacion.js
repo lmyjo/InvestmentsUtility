@@ -62,7 +62,17 @@ module.exports = function(Operacion) {
 
   Operacion.observe('before save', function setFechaCreacion (ctx, next) {
     if (ctx.instance) {
-      ctx.instance.fecha_creacion = new Date();
+      ctx.instance.fecha_creacion = new Date();      
+    }
+    next();
+  });
+  
+  Operacion.observe('before save', function setFechaModifcacion (ctx, next) {
+    if (ctx.instance) {
+      ctx.instance.fecha_modificacion = new Date();
+    } 
+    else {
+      ctx.data.fecha_modificacion = new Date();
     }
     next();
   });
