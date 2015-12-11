@@ -35,7 +35,7 @@
   },
   "Operacion": {
     "dataSource": "investments",
-    "public": true
+    "public": false
   },
   "project": {
     "dataSource": "investments",
@@ -44,5 +44,9 @@
   "Owner": {
     "dataSource": "investments",
     "public": true
+  },
+  "Evaluacion": {
+    "dataSource": "investments",
+    "public": false
   }
 }
