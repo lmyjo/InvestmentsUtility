@@ -1,49 +1,25 @@
 {
-  "name": "project",
-  "plural": "projects",
+  "name": "Evaluacion",
+  "plural": "evaluaciones",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
-    "validateUpsert": false
+    "validateUpsert": true
   },
   "properties": {
-    "name": {
-      "type": "string",
-      "required": true
-    },
     "created": {
       "type": "date"
     },
-    "lastModification": {
-      "type": "date"
-    },
-    "startingDate": {
-      "type": "date",
+    "cantidad": {
+      "type": "number",
       "required": true
     },
-    "description": {
-      "type": "string",
-      "required": true
+    "status": {
+      "type": "object"
     }
   },
   "validations": [],
-  "relations": {
-    "owner": {
-      "type": "belongsTo",
-      "model": "Owner",
-      "foreignKey": "owner_id"
-    },
-    "operaciones": {
-      "type": "hasMany",
-      "model": "Operacion",
-      "foreignKey": "project_id"
-    },
-    "evaluaciones": {
-      "type": "hasMany",
-      "model": "Evaluacion",
-      "foreignKey": "project_id"
-    }
-  },
+  "relations": {},
   "acls": [
     {
       "accessType": "*",

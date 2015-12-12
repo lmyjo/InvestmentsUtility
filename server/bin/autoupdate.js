@@ -32,6 +32,17 @@ dataSource.autoupdate('project', function(err) {
   //Imprime la información del modelo actualizado
   dataSource.discoverModelProperties('project', function (err, props) {
     console.log(props);
+  });
+  
+});
+
+// Hace la creación de la tabla Evaluacion 
+dataSource.autoupdate('Evaluacion', function(err) {
+  if (err) throw err;
+
+  //Imprime la información del modelo creado
+  dataSource.discoverModelProperties('Evaluacion', function (err, props) {
+    console.log(props);
     dataSource.disconnect();
   });
   
