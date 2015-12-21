@@ -1,3 +1,5 @@
+var Linker = require('../lib/linker');
+
 module.exports = function(Project) {
 
   Project.observe('before save', function setCreatedDate (ctx, next) {
@@ -13,6 +15,18 @@ module.exports = function(Project) {
     } else {
       ctx.data.lastModification = new Date();
     }
+    next();
+  });
+
+  Project.observe('loaded', function setLink (context, next) {
+    var data = context.instance || context.data;
+    Linker.addLinksToInstance(Project, 'projects', data);
+    next();
+  });
+
+  Project.observe('after save', function setLink (context, next){
+    var data = context.instance || context.data;
+    Linker.addLinksToInstance(Project, 'projects', data);
     next();
   });
 
