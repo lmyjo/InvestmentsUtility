@@ -9,8 +9,10 @@ function generateLink (linkArray, plural, url) {
 function generateLinksFromRelation (linkArray, model, baseUrl) {
   var relations = model.relations
   for (relatedModel in relations) {
-    var uri = baseUrl + '/' + relatedModel;
-    generateLink(linkArray, relatedModel, uri);
+    if (relations[relatedModel].type !== 'belongsTo') {
+      var uri = baseUrl + '/' + relatedModel;
+      generateLink(linkArray, relatedModel, uri);
+    }
   }
 
 }
