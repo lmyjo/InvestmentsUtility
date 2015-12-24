@@ -1,5 +1,6 @@
 var lmyjoType = require('lmyjo-type');
 var error = require('../lib/error');
+var Linker = require('../lib/linker');
 
 function validatePeriodic (dataSet, tipoFactor, next) {
   if (tipoFactor === 'periodico' || tipoFactor === 'gradiente') {
@@ -62,15 +63,15 @@ module.exports = function(Operacion) {
 
   Operacion.observe('before save', function setFechaCreacion (ctx, next) {
     if (ctx.instance) {
-      ctx.instance.fecha_creacion = new Date();      
+      ctx.instance.fecha_creacion = new Date();
     }
     next();
   });
-  
+
   Operacion.observe('before save', function setFechaModifcacion (ctx, next) {
     if (ctx.instance) {
       ctx.instance.fecha_modificacion = new Date();
-    } 
+    }
     else {
       ctx.data.fecha_modificacion = new Date();
     }
@@ -104,4 +105,17 @@ module.exports = function(Operacion) {
       return next();
     }
   });
+
+  Operacion.observe('loaded', function setLink(context, next) {
+    var data = context.instance || context.data;
+    Linker.addLinksToInstance(Operacion, 'operaciones', data);
+    next();
+  });
+
+  Operacion.observe('after save', function setLink(context, next) {
+    var data = context.instance || context.data;
+    Linker.addLinksToInstance(Operacion, 'operaciones', data);
+    next();
+  });
+
 };
