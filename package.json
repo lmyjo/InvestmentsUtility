@@ -4,7 +4,7 @@
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
-    "test": "NODE_ENV=test mocha test/models/owner test/models/*"
+    "test": "NODE_ENV=test mocha test/models/owner test/models/project test/*"
   },
   "license": "GPL-3.0",
   "dependencies": {

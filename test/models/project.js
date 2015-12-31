@@ -103,12 +103,33 @@ describe('Projects', function () {
     });
 
     it('should delete the resource with 200 Ok', function (done) {
-      helper.inject('delete', '/api/projects/1')
-        .set('Authorization', accessToken)
-        .expect(200, function (err, res) {
-          assert(res.statusCode === 200);
-          assert(res.body.count === 1);
-          done();
+      helper.inject('post', '/api/owners/login')
+        .send({
+          email: 'test@email.com',
+          password: 'passwordExample'
+        })
+        .expect(200, function (err, res){
+          var loginResponse = res.body;
+          accessToken = loginResponse.id;
+          var userId = loginResponse.userId;
+          helper.inject('post', '/api/owners/' + userId + '/projects')
+            .set('Authorization', accessToken)
+            .send({
+              name: 'Example project 2',
+              startingDate: '2016-01-01',
+              description: 'This is an example project for deletion'
+            })
+            .expect(200, function (err, res) {
+              projectInstance = res.body;
+              var idProject = projectInstance.id;
+              helper.inject('delete', '/api/projects/' + idProject)
+                .set('Authorization', accessToken)
+                .expect(200, function (err, res) {
+                  assert(res.statusCode === 200);
+                  assert(res.body.count === 1);
+                  done();
+                });
+            });
         });
     });
   });
