@@ -19,4 +19,4 @@ module.exports = {
       message: '400 - Wrong operation'
     };
   }
-}
+};
