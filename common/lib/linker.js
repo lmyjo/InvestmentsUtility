@@ -27,6 +27,9 @@ module.exports = {
       if (~apiModels.indexOf(plural))
         generateLink(linkArray, plural, baseUrl);
 
+      if (plural === 'owners')
+        generateLink(linkArray, 'login', '/api/owners/login');
+
       generateLinksFromRelation(linkArray, model, baseUrl);
 
       instance.links = linkArray;
