@@ -1,6 +1,6 @@
 {
   "name": "investment_utility",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
