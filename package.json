@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "main": "server/server.js",
   "scripts": {
-    "pretest": "jshint .",
-    "start": "node server/server.js"
+    "start": "node server/server.js",
+    "test": "NODE_ENV=test mocha test/models/owner test/models/project test/*"
   },
   "license": "GPL-3.0",
   "dependencies": {
@@ -25,7 +25,8 @@
     "loopback-explorer": "^1.1.0"
   },
   "devDependencies": {
-    "jshint": "^2.5.6"
+    "mocha": "^2.3.4",
+    "supertest": "^1.1.0"
   },
   "repository": {
     "type": "",

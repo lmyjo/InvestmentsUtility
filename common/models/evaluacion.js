@@ -2,9 +2,15 @@ var Linker = require('../lib/linker');
 var lmyjoType = require('lmyjo-type');
 
 module.exports = function(Evaluacion) {
-  Evaluacion.observe('before save', function setCreatedDate (ctx, next) {
+  Evaluacion.observe('before save', function setDefaultValues (ctx, next) {
     if (ctx.instance) {
       ctx.instance.created = new Date();
+      var evalObject = {
+        vpn: 0,
+        tir: 0,
+        bc: 0
+      };
+      ctx.instance.eval = evalObject;
       ctx.instance.status = lmyjoType.getEstadoEvaluacion('evaluation_pending');
     }
     next();

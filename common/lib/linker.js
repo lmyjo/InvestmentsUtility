@@ -7,8 +7,8 @@ function generateLink (linkArray, plural, url) {
 }
 
 function generateLinksFromRelation (linkArray, model, baseUrl) {
-  var relations = model.relations
-  for (relatedModel in relations) {
+  var relations = model.relations;
+  for (var relatedModel in relations) {
     if (relations[relatedModel].type !== 'belongsTo') {
       var uri = baseUrl + '/' + relatedModel;
       generateLink(linkArray, relatedModel, uri);
@@ -26,6 +26,9 @@ module.exports = {
 
       if (~apiModels.indexOf(plural))
         generateLink(linkArray, plural, baseUrl);
+
+      if (plural === 'owners')
+        generateLink(linkArray, 'login', '/api/owners/login');
 
       generateLinksFromRelation(linkArray, model, baseUrl);
 

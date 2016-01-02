@@ -10,9 +10,8 @@
     "created": {
       "type": "date"
     },
-    "cantidad": {
-      "type": "number",
-      "required": true
+    "eval": {
+      "type": "object"
     },
     "status": {
       "type": "object"
