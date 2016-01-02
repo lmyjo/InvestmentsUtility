@@ -14,10 +14,11 @@
     ]
   },
   "User": {
-    "dataSource": "investments"
+    "dataSource": "investments",
+    "public": false
   },
   "AccessToken": {
-    "dataSource": "db",
+    "dataSource": "investments",
     "public": false
   },
   "ACL": {
@@ -30,6 +31,22 @@
   },
   "Role": {
     "dataSource": "db",
+    "public": false
+  },
+  "Operacion": {
+    "dataSource": "investments",
+    "public": false
+  },
+  "project": {
+    "dataSource": "investments",
+    "public": true
+  },
+  "Owner": {
+    "dataSource": "investments",
+    "public": true
+  },
+  "Evaluacion": {
+    "dataSource": "investments",
     "public": false
   }
 }

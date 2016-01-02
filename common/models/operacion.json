@@ -1,0 +1,87 @@
+{
+  "name": "Operacion",
+  "plural": "operaciones",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": false
+  },
+  "properties": {
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "tipo_operacion": {
+      "type": "string",
+      "required": true
+    },
+    "unidad_tiempo": {
+      "type": "string",
+      "required": true
+    },
+    "tipo_factor": {
+      "type": "string",
+      "required": true
+    },
+    "cantidad_monetaria": {
+      "type": "number",
+      "required": true
+    },
+    "tasa_interes": {
+      "type": "number",
+      "required": true
+    },
+    "periodo_inicial": {
+      "type": "number",
+      "required": true
+    },
+    "periodicidad": {
+      "type": "number"
+    },
+    "duracion": {
+      "type": "number"
+    },
+    "incremento": {
+      "type": "number"
+    },
+    "fecha_creacion": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "project": {
+      "type": "belongsTo",
+      "model": "project",
+      "foreignKey": "project_id"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}
