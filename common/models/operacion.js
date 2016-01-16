@@ -4,9 +4,6 @@ var Linker = require('../lib/linker');
 
 function validatePeriodic (dataSet, tipoFactor, next) {
   if (tipoFactor === 'periodico' || tipoFactor === 'gradiente') {
-    if (!dataSet.periodicidad) {
-      return next(error.getOptionalNotPresentError('periodicidad'));
-    }
     if (!dataSet.duracion) {
       return next(error.getOptionalNotPresentError('duracion'));
     }
