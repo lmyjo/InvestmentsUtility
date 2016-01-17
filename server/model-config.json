@@ -47,6 +47,6 @@
   },
   "Evaluacion": {
     "dataSource": "investments",
-    "public": false
+    "public": true
   }
 }

@@ -35,9 +35,6 @@
       "type": "number",
       "required": true
     },
-    "periodicidad": {
-      "type": "number"
-    },
     "duracion": {
       "type": "number"
     },

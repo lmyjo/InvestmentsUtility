@@ -82,7 +82,7 @@ describe('Operaciones', function () {
           .expect(422, function (err, res) {
             assert(res.statusCode === 422);
             var presenceError = {
-                error: helper.errors.getOptionalNotPresentError('periodicidad')
+                error: helper.errors.getOptionalNotPresentError('duracion')
             };
             assert.deepEqual(res.body, presenceError);
             done();
