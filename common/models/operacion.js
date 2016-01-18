@@ -65,7 +65,7 @@ module.exports = function(Operacion) {
     next();
   });
 
-  Operacion.observe('before save', function setFechaModifcacion (ctx, next) {
+  Operacion.observe('persist', function setFechaModifcacion (ctx, next) {
     if (ctx.instance) {
       ctx.instance.fecha_modificacion = new Date();
     }
@@ -75,9 +75,9 @@ module.exports = function(Operacion) {
     next();
   });
 
-  Operacion.observe('before save', function updateFechaModificacion (ctx, next) {
-    var dataSet = ctx.instance || ctx.data;
-
+  Operacion.observe('persist', function updateFechaModificacion (ctx, next) {
+    var dataSet = ctx.currentInstance;
+    console.log(dataSet);
     if (dataSet.project_id) {
       var Project = Operacion.app.models.Project;
 
