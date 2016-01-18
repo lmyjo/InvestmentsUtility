@@ -7,7 +7,6 @@ module.exports = function(Evaluacion) {
       ctx.instance.created = new Date();
       var evalObject = {
         vpn: 0,
-        tir: 0,
         bc: 0
       };
       ctx.instance.eval = evalObject;
