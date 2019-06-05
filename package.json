@@ -14,7 +14,7 @@
     "lmyjo-type": "git+https://github.com/lmyjo/lmyjo-type.git",
     "loopback": "^2.22.0",
     "loopback-boot": "^2.6.5",
-    "loopback-connector-mongodb": "^1.13.1",
+    "loopback-connector-mongodb": "~3.6.0",
     "loopback-connector-mysql": "^2.2.0",
     "loopback-datasource-juggler": "^2.39.0",
     "loopback-explorer": "^1.1.0",
